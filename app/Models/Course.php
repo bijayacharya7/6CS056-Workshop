@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
+    protected $attributes = [
+        'is_active' => true,
+    ];
+
     protected $fillable = [
         'name',
         'description',
@@ -14,4 +18,12 @@ class Course extends Model
         'difficulty',
         'is_active',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'is_active' => 'boolean',
+            'fee' => 'decimal:2',
+        ];
+    }
 }
